@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200" role="img" aria-labelledby="title desc">
+  <title id="title">Noor Electronics logo</title>
+  <desc id="desc">Navy N monogram with a gold crescent and sparkle, above NOOR ELECTRONICS lettering.</desc>
+  <rect width="1200" height="1200" fill="#FFFFFF"/>
+  <!-- Crescent -->
+  <path d="M 330 425 C 330 565, 470 665, 615 610 C 540 690, 405 685, 330 590 C 285 533, 285 465, 330 425 Z" fill="#E5A927"/>
+  <!-- Geometric N -->
+  <path d="M 390 340 L 390 570 L 450 570 L 450 420 L 625 590 L 680 590 L 680 465 L 625 410 L 625 520 L 450 350 Z" fill="#10213B"/>
+  <!-- Sparkle -->
+  <path d="M 700 270 C 710 310, 725 325, 765 335 C 725 345, 710 360, 700 400 C 690 360, 675 345, 635 335 C 675 325, 690 310, 700 270 Z" fill="#E5A927"/>
+  <!-- Wordmark -->
+  <text x="600" y="820" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="142" font-weight="600" letter-spacing="15" fill="#10213B">NOOR</text>
+  <text x="600" y="900" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="38" font-weight="500" letter-spacing="17" fill="#10213B">ELECTRONICS</text>
+</svg>
