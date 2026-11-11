@@ -11,6 +11,7 @@ import AdminLayout from './layouts/AdminLayout';
 import LandingPage from './pages/public/LandingPage';
 import ProductDetails from './pages/public/ProductDetails';
 import WebCatalog from './pages/admin/WebCatalog';
+import Shop from './pages/public/Shop';
 
 export default function App() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -27,7 +28,7 @@ export default function App() {
         {/* PUBLIC WEBSITE */}
         <Route element={<PublicLayout />}>
           <Route path="/" element={<LandingPage products={products} />} />
-          <Route path="/shop" element={<div className="p-10 text-center font-bold text-slate-500">Full Shop Grid goes here...</div>} />
+          <Route path="/shop" element={<Shop products={products} />} />
           <Route path="/product/:id" element={<ProductDetails products={products} />} />
         </Route>
 

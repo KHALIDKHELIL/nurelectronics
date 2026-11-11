@@ -14,7 +14,11 @@ export interface Product {
   is_active: boolean;
   brand?: string;
   condition?: string;
+  condition_am?: string;
+  condition_om?: string;
   description?: string;
+  description_am?: string;
+  description_om?: string;
   specifications?: Record<string, string>;
 }
 export interface CartItem extends Product {

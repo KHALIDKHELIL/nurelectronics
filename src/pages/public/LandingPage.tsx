@@ -228,33 +228,6 @@ export default function LandingPage({ products = [] }: LandingPageProps) {
         </div>
       </section>
 
-      {/* 8. FOOTER */}
-      <footer className="bg-slate-950 text-slate-400 py-12 mt-auto">
-        <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-10">
-          <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="bg-indigo-600 text-white p-2 rounded-xl"><Store size={24} /></div>
-              <div>
-                <h2 className="text-2xl font-black text-white leading-tight">KioskMarket</h2>
-                <p className="text-[10px] uppercase font-bold tracking-widest text-indigo-400">Bale Zone</p>
-              </div>
-            </div>
-            <p className="text-sm max-w-sm mb-6 leading-relaxed">The premier destination for genuine electronics, appliances, and professional digital services in the Bale Zone.</p>
-          </div>
-          <div>
-            <h4 className="text-white font-bold mb-4 uppercase tracking-wider text-sm">Contact & Hours</h4>
-            <ul className="space-y-4 text-sm">
-              <li className="flex items-start gap-3"><MapPin size={18} className="text-indigo-400 shrink-0" /><span>Bale Zone, Oromia<br/>(Main Street Center)</span></li>
-              <li className="flex items-center gap-3"><Phone size={18} className="text-indigo-400 shrink-0" /><span>+251 911 000 000</span></li>
-              <li className="flex items-center gap-3"><Clock size={18} className="text-indigo-400 shrink-0" /><span>Mon - Sat: 8:00 AM - 6:00 PM</span></li>
-            </ul>
-          </div>
-        </div>
-        <div className="max-w-7xl mx-auto px-4 mt-12 pt-8 border-t border-slate-800 text-xs flex justify-between items-center">
-          <p>&copy; {new Date().getFullYear()} KioskMarket ET. All rights reserved.</p>
-          <span className="flex items-center gap-1"><ShieldCheck size={14}/> Verified Business</span>
-        </div>
-      </footer>
     </div>
   );
 }
