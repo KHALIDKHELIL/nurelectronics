@@ -4,7 +4,7 @@ import {
   Info, ArrowRight, Camera, ShoppingBag, Store, 
   ShieldCheck, MapPin, Phone, Clock, Search, Headphones, PackageSearch
 } from 'lucide-react';
-import type { Product } from '../types/store';
+import type { Product } from '../../types/store';
 
 interface LandingPageProps {
   products: Product[];
