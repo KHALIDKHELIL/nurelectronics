@@ -2,44 +2,43 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { fetchCatalog } from './services/api';
 import type { Product } from './types/store';
+import { AppProvider } from './context/AppContext';
 
-// Layouts
+// Layouts & Pages
 import PublicLayout from './layouts/PublicLayout';
 import AdminLayout from './layouts/AdminLayout';
-
-// Pages
 import LandingPage from './pages/public/LandingPage';
-import ProductDetails from './pages/public/ProductDetails';
-import WebCatalog from './pages/admin/WebCatalog';
 import Shop from './pages/public/Shop';
+import ProductDetails from './pages/public/ProductDetails';
+import Services from './pages/public/Services'; // New File
+import WebCatalog from './pages/admin/WebCatalog';
+import Orders from './pages/admin/Orders';
 
 export default function App() {
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
-    // Fetch live inventory from Supabase on load
     fetchCatalog().then(setProducts).catch(console.error);
   }, []);
 
   return (
-    <BrowserRouter>
-      <Routes>
-        
-        {/* PUBLIC WEBSITE */}
-        <Route element={<PublicLayout />}>
-          <Route path="/" element={<LandingPage products={products} />} />
-          <Route path="/shop" element={<Shop products={products} />} />
-          <Route path="/product/:id" element={<ProductDetails products={products} />} />
-        </Route>
+    <AppProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<PublicLayout />}>
+            <Route path="/" element={<LandingPage products={products} />} />
+            <Route path="/shop" element={<Shop products={products} />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/product/:id" element={<ProductDetails products={products} />} />
+          </Route>
 
-        {/* SECURE ADMIN DASHBOARD */}
-        <Route path="/admin" element={<AdminLayout />}>
-          <Route index element={<Navigate to="/admin/catalog" replace />} />
-          <Route path="catalog" element={<WebCatalog />} />
-          <Route path="orders" element={<div className="p-10 text-center font-bold text-slate-500">Order Management coming soon...</div>} />
-        </Route>
-
-      </Routes>
-    </BrowserRouter>
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route index element={<Navigate to="/admin/catalog" replace />} />
+            <Route path="catalog" element={<WebCatalog />} />
+            <Route path="orders" element={<Orders />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </AppProvider>
   );
 }
