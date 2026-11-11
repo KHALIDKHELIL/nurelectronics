@@ -9,12 +9,14 @@ import AdminLayout from './layouts/AdminLayout';
 
 // Pages
 import LandingPage from './pages/public/LandingPage';
+import ProductDetails from './pages/public/ProductDetails';
 import WebCatalog from './pages/admin/WebCatalog';
 
 export default function App() {
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
+    // Fetch live inventory from Supabase on load
     fetchCatalog().then(setProducts).catch(console.error);
   }, []);
 
@@ -24,15 +26,16 @@ export default function App() {
         
         {/* PUBLIC WEBSITE */}
         <Route element={<PublicLayout />}>
-          <Route path="/" element={<LandingPage products={products} onBrowseProducts={() => {}} />} />
-          <Route path="/shop" element={<div className="p-10 text-center">Full Shop Grid goes here</div>} />
+          <Route path="/" element={<LandingPage products={products} />} />
+          <Route path="/shop" element={<div className="p-10 text-center font-bold text-slate-500">Full Shop Grid goes here...</div>} />
+          <Route path="/product/:id" element={<ProductDetails products={products} />} />
         </Route>
 
         {/* SECURE ADMIN DASHBOARD */}
         <Route path="/admin" element={<AdminLayout />}>
           <Route index element={<Navigate to="/admin/catalog" replace />} />
           <Route path="catalog" element={<WebCatalog />} />
-          <Route path="orders" element={<div className="p-10">Order Management coming soon...</div>} />
+          <Route path="orders" element={<div className="p-10 text-center font-bold text-slate-500">Order Management coming soon...</div>} />
         </Route>
 
       </Routes>

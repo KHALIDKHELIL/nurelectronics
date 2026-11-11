@@ -4,16 +4,19 @@ export type OrderStatus = 'pending' | 'confirmed' | 'completed' | 'cancelled';
 
 export interface Product {
   id: string;
-  pos_item_id?: string | null; // Maps to Firestore inventory doc_id later
   name: string;
+  name_am?: string;
+  name_om?: string;
   category: string;
   retail_price: number;
   stock_quantity: number;
-  image_url: string | null;
+  image_url?: string;
   is_active: boolean;
-  created_at?: string;
+  brand?: string;
+  condition?: string;
+  description?: string;
+  specifications?: Record<string, string>;
 }
-
 export interface CartItem extends Product {
   qty: number;
 }
